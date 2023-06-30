@@ -7,22 +7,31 @@ import VisuallyHidden from '../VisuallyHidden';
 
 const ProgressBar = ({ value, size }) => {
   return (
-  <div
+  <Wrapper
     role='progressbar'
     aria-valuenow={value}
     aria-valuemin='0'
     aria-valuemax='100'
   >
     <VisuallyHidden>{value}%</VisuallyHidden>
-    <Bar />
-  </div>
+    <Bar style={{ '--width': value + '% '}}/>
+  </Wrapper>
   );
 };
 
+const Wrapper = styled.div`
+  background-color: ${COLORS.transparentGray15};
+  box-shadow:inset 0px 2px 4px ${COLORS.transparentGray35};
+  border-radius: 4px;
+  /*trim corners when progress bar is full*/ 
+  overflow: hidden;
+`;
+
 const Bar = styled.div`
-  width: 50%;
+  width: var(--width);
   height: 8px;
   background-color: ${COLORS.primary};
+  border-radius: 4px 0 0 4px;
   `
 
 export default ProgressBar;
