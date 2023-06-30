@@ -13,9 +13,16 @@ const ProgressBar = ({ value, size }) => {
     aria-valuemin='0'
     aria-valuemax='100'
   >
-    
+    <VisuallyHidden>{value}%</VisuallyHidden>
+    <Bar />
   </div>
   );
 };
+
+const Bar = styled.div`
+  width: 50%;
+  height: 8px;
+  background-color: ${COLORS.primary};
+  `
 
 export default ProgressBar;
