@@ -8,15 +8,16 @@
 <body>
     <style>
         main {
+            --spacing: 8px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
-            padding: 8px;
+            gap: var(--spacing);
+            padding: var(--spacing);
         }
         article {
-            border-radius: 8px;
-            padding: 8px;
+            border-radius: var(--spacing);
+            padding: var(--spacing);
         }
 
         body {
@@ -37,23 +38,13 @@
       
         @media (min-width: 350px) {
           main {
-            gap: 16px;
-            padding: 16px;
-          }
-          article {
-            border-radius: 16px;
-            padding: 16px;
+            --spacing: 16px;
           }
         }
       
         @media (min-width: 500px) {
           main {
-            gap: 32px;
-            padding: 32px;
-          }
-          article {
-            border-radius: 32px;
-            padding: 32px;
+            --spacing: 32px;
           }
         }
       </style>
