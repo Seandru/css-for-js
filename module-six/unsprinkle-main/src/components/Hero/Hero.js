@@ -4,8 +4,29 @@ import styled from 'styled-components/macro';
 const Hero = () => {
   return (
     <Wrapper>
-      <HeroImage src="/images/hero-img.jpg" />
-      <Swoop src="/swoop.svg" />
+      <picture>
+        <source
+          type="image/avif"
+          srcSet={`
+            /images/hero-img.avif 1x,
+            /images/hero-img@2x.avif 2x,
+            /images/hero-img@3x.avif 3x
+          `}
+        />
+        <source
+          type="image/jpeg"
+          srcSet={`
+            /images/hero-img.jpg 1x,
+            /images/hero-img@2x.jpg 2x,
+            /images/hero-img@3x.jpg 3x
+          `}
+        />
+        <HeroImage
+          alt="An example of the photos distributed through this site (cat on black background)"
+          src="/images/hero-img.jpg"
+        />
+      </picture>
+      <Swoop alt="" src="/swoop.svg" />
     </Wrapper>
   );
 };
@@ -31,10 +52,7 @@ const Swoop = styled.img`
   position: absolute;
   left: 0;
   right: 0;
-  /*
-    Overhang by a couple px to prevent any pixel-rounding
-    display issues
-  */
+
   bottom: -2px;
   width: 100%;
 `;
